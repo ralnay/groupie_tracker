@@ -22,9 +22,7 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "500 - Internal Server Error", http.StatusInternalServerError)
 		return
 	}
-	// up until here is for main page
-	/* -------------------------------------------------------------- */
-	// below is the artist page
+
 	if r.Method == http.MethodPost {
 		if r.URL.Path != "/artist" {
 			http.Error(w, "404 - Page Not Found", http.StatusNotFound)
