@@ -11,8 +11,6 @@ import (
 type Data struct {
 	A Artist
 	R Relation
-	// L Location
-	// D Date
 }
 
 type Artist struct {
@@ -24,24 +22,12 @@ type Artist struct {
 	FirstAlbum string   `json:"firstAlbum"`
 }
 
-// type Location struct {
-// 	Locations []string `json:"locations"`
-// }
-
-// type Date struct {
-// 	Dates []string `json:"dates"`
-// }
-
 type Relation struct {
 	Relation map[string][]string `json:"datesLocations"`
 }
 
 var (
 	a   []Artist
-	// lMap  map[string]json.RawMessage
-	// l []Location
-	// dMap     map[string]json.RawMessage
-	// d    []Date
 	rMap  map[string]json.RawMessage
 	r []Relation
 )
@@ -58,58 +44,6 @@ func ArtistData() []Artist {
 	json.Unmarshal(artistData, &a)
 	return a
 }
-
-// func Loc() []Location {
-// 	var bytes []byte
-// 	location, err2 := http.Get("https://groupietrackers.herokuapp.com/api/locations")
-// 	if err2 != nil {
-// 		log.Fatal()
-// 	}
-// 	locationData, err3 := ioutil.ReadAll(location.Body)
-// 	if err3 != nil {
-// 		log.Fatal()
-// 	}
-// 	err := json.Unmarshal(locationData, &lMap)
-// 	if err != nil {
-// 		fmt.Println("error :", err)
-// 	}
-// 	for _, m := range lMap {
-// 		for _, v := range m {
-// 			bytes = append(bytes, v)
-// 		}
-// 	}
-// 	err = json.Unmarshal(bytes, &l)
-// 	if err != nil {
-// 		fmt.Println("error :", err)
-// 	}
-// 	return l
-// }
-
-// func Dates() []Date {
-// 	var bytes []byte
-// 	dates, err2 := http.Get("https://groupietrackers.herokuapp.com/api/dates")
-// 	if err2 != nil {
-// 		log.Fatal()
-// 	}
-// 	datesData, err3 := ioutil.ReadAll(dates.Body)
-// 	if err3 != nil {
-// 		log.Fatal()
-// 	}
-// 	err := json.Unmarshal(datesData, &dMap)
-// 	if err != nil {
-// 		fmt.Println("error :", err)
-// 	}
-// 	for _, m := range dMap {
-// 		for _, v := range m {
-// 			bytes = append(bytes, v)
-// 		}
-// 	}
-// 	err = json.Unmarshal(bytes, &d)
-// 	if err != nil {
-// 		fmt.Println("error :", err)
-// 	}
-// 	return d
-// }
 
 func RelationData() []Relation {
 	var bytes []byte
@@ -142,14 +76,10 @@ func RelationData() []Relation {
 func AllData() []Data {
 	ArtistData()
 	RelationData()
-	// Loc()
-	// Dates()
 	data := make([]Data, len(a))
 	for i := 0; i < len(a); i++ {
 		data[i].A = a[i]
 		data[i].R = r[i]
-		// data[i].L = l[i]
-		// data[i].D = d[i]
 	}
 	return data
 }
