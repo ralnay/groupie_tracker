@@ -11,7 +11,7 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// call functions that will get and store the artist info
+	ArtistData()
 
 	tmpl, err := template.ParseFiles("template/mainpage.html")
 	if err != nil {
@@ -24,14 +24,14 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
 	}
 	// up until here is for main page
 	/* -------------------------------------------------------------- */
-	//
+	// below is the artist page
 	if r.Method == http.MethodPost {
 		if r.URL.Path != "/artist" {
 			http.Error(w, "404 - Page Not Found", http.StatusNotFound)
 			return
 		}
 
-		// call functions that will collect all data
+		AllData()
 
 		tmpl, err := template.ParseFiles("template/artistpage.html")
 		if err != nil {
