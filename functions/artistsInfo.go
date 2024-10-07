@@ -117,8 +117,8 @@ func RelationData() []Relation {
 	if err2 != nil {
 		log.Fatal()
 	}
-	relationData, err3 := ioutil.ReadAll(relation.Body)
-	if err3 != nil {
+	relationData, err2 := ioutil.ReadAll(relation.Body)
+	if err2 != nil {
 		log.Fatal()
 	}
 	err := json.Unmarshal(relationData, &rMap)
