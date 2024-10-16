@@ -10,7 +10,7 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "404 - Page Not Found", http.StatusNotFound)
 		return
 	}
-
+	
 	ArtistData()
 
 	tmpl, err := template.ParseFiles("template/mainpage.html")
@@ -23,7 +23,7 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if r.Method == http.MethodPost {
+	if r.Method == http.MethodGet {
 		if r.URL.Path != "/artist" {
 			http.Error(w, "404 - Page Not Found", http.StatusNotFound)
 			return
@@ -41,3 +41,5 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
+
