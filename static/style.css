@@ -1,12 +1,12 @@
 body {
     text-align: center;
-    background-color: #1b1c2e;
-  }
-  .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-  
-  h1:hover {
-    color: #000;
-  }
+    background-image: url(3.jpg);
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+h1:hover {
+  color: #000;
+}
