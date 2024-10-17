@@ -1,62 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="/static/style.css">
-        <title>Groupie-Tracker</title>
-    </head>
-    <body>
-        <form method="post" action="/artist">
-            <header>
-                <nav>
-                    <h1>Groupie-Tracker</h1>
-                    <button>Back</button>
-                </nav>
-            </header>
-            <main id="1">
-                <figure>
-                    <img src="https://groupietrackers.herokuapp.com/api/images/queen.jpeg">
-                    <figcaption>
-                        <h4>Members:</h4>
-                        <p>Freddie Mercury <br>
-                            Brian May<br>
-                            John Daecon<br>
-                            Roger Meddows-Taylor<br>
-                            Mike Grose<br>
-                            Barry Mitchell<br>
-                            Doug Fogie</p>
-                        <h4>Creation Date:</h4>
-                        <p>1970</p>
-                        <h4>First Album:</h4>
-                        <p>14-12-1973</p>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <h4>Concerts:</h4>
-                    <p>Nagoya, Japan:<br>
-                        30.01.2019
-                        <br><br>
-                        Los Angeles, USA:<br>
-                        20.08.2019
-                        <br><br>
-                        Georgia, USA:<br>
-                        22.08.2019
-                        <br><br>
-                        North Carolina, USA:<br>
-                        23.08.2019
-                        <br><br>
-                        Saitama, Japan:<br>
-                        26.01.2020
-                        <br><br>
-                        Osaka, Japan:<br>
-                        28.01.2020
-                        <br><br>
-                        Penrose, New Zealand:<br>
-                        07.02.2020
-                        <br><br>
-                        Dunedin, New Zealand:<br>
-                        10.02.2020</p>
-                </figure>
-        </form>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>{{.A.Name}} - Groupie Tracker</title>
+</head>
+<body>
+    <form method="post" action="/artist">
+    <header>
+        <h1>{{.A.Name}}</h1>
+        <img src="{{.A.Image}}" alt="{{.A.Name}}" />
+        <p>Members: {{range .A.Members}}{{.}}, {{end}}</p>
+        <p>Started in: {{.A.Creation}}</p>
+        <p>First Album: {{.A.FirstAlbum}}</p>
+        <h2>Concert Locations and Dates</h2>
+        <ul>
+            {{range $location, $dates := .R.Relation}}
+            <li>{{$location}}: {{range $dates}}{{$dates}} {{end}}</li>
+            {{end}}
+        </ul>
+        <a href="/" class="back-button">Back</a>
+    </header>
+    </form>
+</body>
 </html>
