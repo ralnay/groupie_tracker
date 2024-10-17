@@ -16,12 +16,9 @@
                 {{range .}}
                 <div class="photo_card">
                     <a href="/artist/{{.Id}}">
-                        <h2>{{.Name}}</h2>
                         <img src="{{.Image}}" alt="{{.Name}}" />
+                        <h2>{{.Name}}</h2>
                     </a>
-                    <p>Members: {{range .Members}}{{.}}, {{end}}</p>
-                    <p>Started in: {{.Creation}}</p>
-                    <p>First Album: {{.FirstAlbum}}</p>
                 </div>
                 {{end}}
             </div>

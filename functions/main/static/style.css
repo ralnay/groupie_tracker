@@ -1,4 +1,3 @@
-
 body {
   font-family: 'Arial', sans-serif;
   background-image: url("https://i.im.ge/2024/10/16/kyr4Ap.Untitled8-20241016183052.jpeg");
@@ -16,28 +15,38 @@ header {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-
 .photos {
-  margin: none;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-adjust columns */
+  grid-gap: 20px; /* Spacing between grid items */
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.photo_card img{
+.photo_card {
   border-style: outset;
   border-width: 10px;
   border-color: #070709;
+  transition: transform 0.3s ease-in-out;
 }
-.photo_card img:hover {
+
+.photo_card img {
+  width: 100%;
+  height: auto;
+}
+
+.photo_card:hover {
+  transform: scale(1.05);
   border-style: inset;
+}
+
+.photo_card a {
+  color: #f8ecec;
+  text-decoration: none;
 }
 
 footer {
