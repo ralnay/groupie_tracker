@@ -31,12 +31,12 @@ header {
   justify-content: center;
 }
 
-.photo_card {
+.photo_card img{
   border-style: outset;
   border-width: 10px;
   border-color: #070709;
 }
-.photo_card:hover {
+.photo_card img:hover {
   border-style: inset;
 }
 
