@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	piscine "piscine/functions"
+	"piscine"
 )
 
 func main() {
@@ -15,4 +15,3 @@ func main() {
 	fmt.Println("Server started at :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
-
