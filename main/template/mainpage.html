@@ -6,11 +6,8 @@
     <title>Groupie Tracker</title>
 </head>
 <body>
+    <form method="post" action="/main">
     <main class="container">
-        <header>
-            <h1>Groupie Tracker</h1>
-            <h3>Find Your Artist</h3>
-        </header>
         <section id="Gallery">
             <div class="photos">
                 {{range .}}
@@ -24,6 +21,7 @@
             </div>
         </section>
     </main>
+    </form>
 </body>
 </html>
 
