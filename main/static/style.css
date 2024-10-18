@@ -1,6 +1,6 @@
 body {
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-  background-image: url("https://i.im.ge/2024/10/18/kCdfP0.152f4cebdf4b1ba8fe50b4a3308c96d9.jpeg");
+  background-image: url("https://i.im.ge/2024/10/18/kCsxip.download-3.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -9,23 +9,9 @@ body {
   color: #f8ecec;
   text-align: center;
 }
-.art {
-  background-image: url("https://i.im.ge/2024/10/18/kCqTk6.ff18b1b7c4912f70a1a3b960ac225175.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-}
+
 header {
   padding: 20px;
-}
-
-.back {
-  background-image: url("https://i.im.ge/2024/10/18/kCdfP0.152f4cebdf4b1ba8fe50b4a3308c96d9.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
 }
 
 .h {
