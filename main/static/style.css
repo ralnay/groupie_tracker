@@ -15,16 +15,22 @@ header {
 }
 
 .h {
-  padding: 150px;
+  display: flex;
+  justify-content: center;  /* Horizontally center the content */
+  align-items: center; 
+  flex-direction: column;
+  min-height: 100vh; 
 }
 
 .home a {
   display: inline-block;
-  font-size: 0.5rem;
+  padding: 2px;
+  font-size: 0.6rem;
   font-weight: bold;
   color: #f8ecec;
   border-style: outset;
   border-radius: 200px;
+  border-width: 5px;
   text-align: center;
   text-decoration: none;
   transition: transform 0.3s ease-in-out;
@@ -35,6 +41,7 @@ header {
 .home a:hover {
   color:#a4a4c1;
   border-style: inset;
+  border-color: #070709;
   transform: scale(1.05);
 }
 
