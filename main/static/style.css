@@ -92,3 +92,97 @@ footer {
 footer p {
   margin: 0;
 }
+
+/* artist page */
+.group-info {
+  position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 1200px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background to improve readability */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* More prominent shadow */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.artist-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 35%; /* Adjusted width for more space on the right */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.4)); /* Semi-transparent gradient */
+}
+
+.artist-name h2 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #ffffff; /* Make text lighter for better contrast */
+}
+
+.artist-image img {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.concert-info {
+  width: 100%; /* Responsive width */
+  color: #eaeaea;
+  text-align: left;
+  max-height: 550px; /* Limit the height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.concert-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.concert-info ul li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.concert-info ul::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.concert-info ul::-webkit-scrollbar-thumb {
+  background-color: #a4a4c1;
+  border-radius: 8px;
+}
+
+.concert-info ul::-webkit-scrollbar-track {
+  background: #F6D9DD;
+}
+
+
+.back-button {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #f8ecec;
+  border-style: outset;
+  border-radius: 200px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: 250px; 
+}
+
+.back-button:hover {
+  color:#a4a4c1;
+  border-style: inset;
+  transform: scale(1.05);
+}
+
