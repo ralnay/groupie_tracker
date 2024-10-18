@@ -1,6 +1,6 @@
 body {
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-  background-image: url("https://i.im.ge/2024/10/16/kyr4Ap.Untitled8-20241016183052.jpeg");
+  background-image: url("https://i.im.ge/2024/10/18/kCdfP0.152f4cebdf4b1ba8fe50b4a3308c96d9.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -9,9 +9,47 @@ body {
   color: #f8ecec;
   text-align: center;
 }
-
+.art {
+  background-image: url("https://i.im.ge/2024/10/18/kCqTk6.ff18b1b7c4912f70a1a3b960ac225175.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
 header {
   padding: 20px;
+}
+
+.back {
+  background-image: url("https://i.im.ge/2024/10/18/kCdfP0.152f4cebdf4b1ba8fe50b4a3308c96d9.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.h {
+  padding: 150px;
+}
+
+.home a {
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: bold;
+  color: #f8ecec;
+  border-style: outset;
+  border-radius: 200px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: 250px; 
+}
+
+.home a:hover {
+  color:#a4a4c1;
+  border-style: inset;
+  transform: scale(1.05);
 }
 
 .container {
