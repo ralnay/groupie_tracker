@@ -4,34 +4,143 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/style.css">
     <title>{{.A.Name}} - Groupie Tracker</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1, h2 {
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.group-info {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 1200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.artist-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 30%;
+    border-right: 1px solid #ddd;
+}
+
+.artist-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.artist-image img:hover {
+    transform: scale(1.05);
+}
+
+.artist-name h2 {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+.artist-name ul {
+    padding-left: 20px;
+}
+
+.concert-info {
+    padding: 20px;
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.concert-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.concert-info ul li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.concert-info ul li:hover {
+    background-color: #e0e7ff;
+}
+
+.back-button {
+    margin-top: auto;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+    </style>
 </head>
-<body class="art">
+<body>
     <form method="post" action="/artist">
-    <header>
-        <h1>{{.A.Name}}</h1>
-    </header>
-    <main>
-        <section style=" display: -webkit-flex; display: flex;">
-            <img src="{{.A.Image}}" alt="{{.A.Name}}" style="border-radius: 50%;"/>
-            <p><strong>Members:</strong>
+        <header>
+            <h1>{{.A.Name}}</h1>
+        </header>
+        <main class="group-info">
+            <section class="artist-details">
+                <div class="artist-image">
+                    <img src="{{.A.Image}}" alt="{{.A.Name}}" />
+                </div>
+                <div class="artist-name">
+                    <h2>{{.A.Name}}</h2>
+                    <p><strong>Members:</strong></p>
+                    <ul>
+                        {{range $member := .A.Members}}
+                        <li>{{$member}}{{end}}</li>
+                    </ul>
+                    <p>Started in: {{.A.Creation}}</p>
+                    <p>First Album: {{.A.FirstAlbum}}</p>
+                </div>
+            </section>
+            <section class="concert-info">
+                <h2>Concert Locations and Dates</h2>
                 <ul>
-                    {{range $member := .A.Members}}
-                    <li>{{$member}}{{end}}</li>
-                </ul> 
-            </p>
-            <p>Started in: {{.A.Creation}}</p>
-            <p>First Album: {{.A.FirstAlbum}}</p>
-        </section>
-        <section style="-webkit-flex: 1; -ms-flex: 1; flex: 1; padding: 20px;">
-            <h2>Concert Locations and Dates</h2>
-        <ul style="list-style-type: none; padding: 0;">
-            {{range $location, $dates := .R.Relation}}
-            <li>{{$location}}: {{range $dates}} <ul>{{$dates}} {{end}}</ul></li>
-            {{end}}
-        </ul>
-        <a href="/" class="back-button">Back</a>
-        </section>
-    </main>
+                    {{range $location, $dates := .R.Relation}}
+                    <li>{{$location}}: 
+                        <ul>
+                            {{range $dates}}
+                            <li>{{$dates}}</li>
+                            {{end}}
+                        </ul>
+                    </li>
+                    {{end}}
+                </ul>
+                <a href="/" class="back-button">Back</a>
+            </section>
+        </main>
     </form>
 </body>
 </html>
