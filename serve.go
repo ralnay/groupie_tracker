@@ -37,7 +37,7 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
     } else if path !="" {
         artistID, err := strconv.ParseUint(path, 10, 32)
         if err != nil {
-            http.Error(w, "400 - Invalid Artist ID", http.StatusBadRequest)
+            http.Error(w, "404 - Page Not Found", http.StatusNotFound)
             return
         }
 
@@ -51,7 +51,7 @@ func ServeIndex(w http.ResponseWriter, r *http.Request) {
         }
 
         if selectedArtist.Name == "" {
-            http.Error(w, "404 - Artist Not Found", http.StatusNotFound)
+            http.Error(w, "404 - Page Not Found", http.StatusNotFound)
             return
         }
 
