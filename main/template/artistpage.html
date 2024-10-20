@@ -6,7 +6,7 @@
     <title>{{.A.Name}} - Groupie Tracker</title>
 </head>
 <body>
-    <form method="post" action="/artist">
+    <form method="post" action="/artist/">
         <main class="group-info">
             <section class="artist-details">
                 <div class="artist-image">
@@ -17,22 +17,24 @@
                     <p><strong>Members:</strong></p>
                     <ul>
                         {{range $member := .A.Members}}
-                        <li>{{$member}}{{end}}</li>
+                        <li>{{$member}}</li>
+                        {{end}}
                     </ul>
                     <p>Started in: {{.A.Creation}}</p>
                     <p>First Album: {{.A.FirstAlbum}}</p>
                     <a href="/main/" class="back-button">Back</a>
                 </div>
             </section>
+
             <div>
                 <h2>Concert Locations and Dates</h2>
             <section class="concert-info">
                 <ul class="Relation_list">
                     {{range $location, $dates := .R.Relation}}
-                    <li>{{$location}}: 
-                        <ul class="date">
-                            {{range $dates}}
-                            <li>{{$dates}}</li>
+                    <li><strong>{{$location}}:</strong>
+                        <ul class="date-list">
+                            {{range $date := $dates}}
+                            <li>{{$date}}</li>
                             {{end}}
                         </ul>
                     </li>
@@ -40,6 +42,32 @@
                 </ul>
             </section>
             </div>
+            <section class="location-info">
+                <ul class="Location_list">
+                    {{range $location, $venues := .L.Locations}}
+                    <li><strong>{{$location}}:</strong>
+                        <ul class="venue-list">
+                            {{range $venue := $venues}}
+                            <li>{{$venue}}</li>
+                            {{end}}
+                        </ul>
+                    </li>
+                    {{end}}
+                </ul>
+            </section>
+            <section class="date-info">
+                <ul class="Date_list">
+                    {{range $date, $events := .D.Dates}}
+                    <li><strong>{{$date}}:</strong>
+                        <ul class="event-list">
+                            {{range $event := $events}}
+                            <li>{{$event}}</li>
+                            {{end}}
+                        </ul>
+                    </li>
+                    {{end}}
+                </ul>
+            </section>
         </main>
     </form>
 </body>
